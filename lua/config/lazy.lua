@@ -21,8 +21,8 @@ require("lazy").setup({
   spec = {
     { import = "plugins" },
   },
-  install = { colorscheme = { "onedark" } },
+  -- install = { colorscheme = { "onedark" } },
   checker = { enabled = true },
 })
 
-vim.cmd([[colorscheme onedark]])
+-- vim.cmd([[colorscheme onedark]])

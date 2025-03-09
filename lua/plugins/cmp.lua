@@ -1,16 +1,13 @@
--- lua/plugins/cmp.lua
-
 return {
-    -- Autocompletar
     {
       'hrsh7th/nvim-cmp',
       dependencies = {
-        'hrsh7th/cmp-nvim-lsp',  -- LSP autocompletar
-        'hrsh7th/cmp-buffer',  -- Sugestões do buffer
-        'hrsh7th/cmp-path',  -- Sugestões de caminho de arquivos
-        'hrsh7th/cmp-cmdline',  -- Sugestões da linha de comando
-        'L3MON4D3/LuaSnip',  -- Snippets engine
-        'saadparwaiz1/cmp_luasnip'  -- Suporte para snippets
+        'hrsh7th/cmp-nvim-lsp',  
+        'hrsh7th/cmp-buffer', 
+        'hrsh7th/cmp-path',  
+        'hrsh7th/cmp-cmdline',  
+        'L3MON4D3/LuaSnip',  
+        'saadparwaiz1/cmp_luasnip'  
       },
       config = function()
         local cmp = require('cmp')
@@ -22,13 +19,13 @@ return {
             end,
           },
           mapping = cmp.mapping.preset.insert({
-            ['<C-Space>'] = cmp.mapping.complete(),  -- Chamar o autocompletar manualmente
-            ['<CR>'] = cmp.mapping.confirm({ select = true }),  -- Confirmar com Enter
+            ['<C-Space>'] = cmp.mapping.complete(),  
+            ['<CR>'] = cmp.mapping.confirm({ select = true }), 
             ['<Tab>'] = cmp.mapping.select_next_item(),
             ['<S-Tab>'] = cmp.mapping.select_prev_item(),
           }),
           sources = cmp.config.sources({
-            { name = 'nvim_lsp' },  -- Integração com LSP
+            { name = 'nvim_lsp' },
             { name = 'buffer' },
             { name = 'path' },
           }),

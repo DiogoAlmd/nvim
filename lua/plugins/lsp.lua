@@ -14,14 +14,14 @@ return {
       local lspconfig = require("lspconfig")
       local servers = {
         -- Web development
-        "tsserver",        -- TypeScript/JavaScript
+        "ts_ls",          -- TypeScript/JavaScript
         "eslint",         -- ESLint
         "html",           -- HTML
         "cssls",          -- CSS
         "tailwindcss",    -- Tailwind CSS
         
         -- Python
-        "pyright",        -- Python
+        -- "pyright",        -- Python
         
         -- Lua
         "lua_ls",         -- Lua

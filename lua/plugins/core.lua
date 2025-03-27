@@ -1,5 +1,4 @@
 return {
-  -- Essential plugins
   { "nvim-lua/plenary.nvim", lazy = true },
   {
     "windwp/nvim-autopairs",
@@ -21,16 +20,6 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     main = "ibl",
     opts = {},
-  },
-  {
-    "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
-    opts = {
-      options = {
-        theme = "gruber-darker",
-        globalstatus = true,
-      },
-    },
   },
   {
     "akinsho/bufferline.nvim",

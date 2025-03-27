@@ -18,37 +18,53 @@ A modern Neovim configuration for full-stack development with support for:
 - 📝 LSP support for multiple languages
 - 🔧 Built-in formatting and linting
 - 🧪 Testing integration
-- 🎨 Beautiful UI with Gruber Darker theme
+- 🎨 Beautiful UI with Catppuccin theme
 
 ## Installation
 
-### Font Setup
+### Prerequisites
 
-This configuration uses JetBrains Mono Nerd Font. To install it:
+Ensure you have the following installed:
+- Neovim >= 0.9.0
+- Git
+- Node.js (for LSP servers)
+- Python (for Python development)
+- ripgrep (for Telescope live grep)
+- JetBrains Mono Nerd Font (for icons and best experience)
 
-```bash
-# On macOS using Homebrew
-brew tap homebrew/cask-fonts
-brew install --cask font-jetbrains-mono-nerd-font
-```
+### Setup Commands
 
-After installing, configure your terminal to use "JetBrainsMono Nerd Font" or "JetBrainsMono Nerd Font Mono".
+1. **Install Neovim Plugins**
+   Open Neovim and run:
+   ```vim
+   :Lazy
+   ```
+   This will install all the plugins specified in your configuration.
 
-For different terminals:
-- **iTerm2**: Preferences -> Profiles -> Text -> Font
-- **Terminal.app**: Preferences -> Profiles -> Text -> Font
-- **VS Code integrated terminal**: Add to settings.json:
-  ```json
-  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font"
-  ```
+2. **Install Language Servers and Tools**
+   Use npm to install the necessary language servers and tools:
+   ```bash
+   npm install -g typescript-language-server eslint_d tailwindcss-language-server prettier
+   ```
 
-### Theme
+3. **Install Python Tools**
+   Use pip to install Python tools:
+   ```bash
+   pip install black isort
+   ```
 
-This configuration uses the [Gruber Darker](https://github.com/blazkowolf/gruber-darker.nvim) theme, a port of the beloved Gruber Darker color scheme for Emacs. It provides:
-- Low contrast dark theme optimized for long coding sessions
-- Carefully chosen colors that work well together
-- Special attention to syntax highlighting
-- Consistent styling across different languages
+4. **Install Fonts**
+   Install JetBrains Mono Nerd Font using Homebrew:
+   ```bash
+   brew tap homebrew/cask-fonts
+   brew install --cask font-jetbrains-mono-nerd-font
+   ```
+   Configure your terminal to use "JetBrainsMono Nerd Font" or "JetBrainsMono Nerd Font Mono".
+
+### Configuration
+
+- **Leader Key**: The leader key is set to `<Space>`.
+- **Theme**: The configuration uses the Catppuccin theme by default.
 
 ## Key Mappings
 
@@ -143,21 +159,33 @@ This configuration uses the [Gruber Darker](https://github.com/blazkowolf/gruber
 ## Customization
 
 ### Changing Theme
-The configuration uses Gruber Darker theme by default. To change themes:
-1. Add your preferred theme plugin in `lua/plugins/core.lua`
+The configuration uses Catppuccin theme by default. To change themes:
+1. Add your preferred theme plugin in `lua/plugins/theme.lua`
 2. Update the colorscheme configuration
 3. Update the lualine theme if needed
 
 Example for adding a new theme:
 ```lua
-{
-  "your-theme-plugin",
-  lazy = false,
-  priority = 1000,
-  config = function()
-    vim.cmd.colorscheme("your-theme-name")
-  end,
+return {
+  {
+    "your-theme-plugin",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme("your-theme-name")
+    end,
+  }
 }
+```
+
+### Catppuccin Flavor
+The default flavor is "mocha" (dark). You can change the flavor by modifying the theme configuration in `lua/plugins/theme.lua`:
+
+```lua
+require("catppuccin").setup({
+  flavour = "frappe", -- latte, frappe, macchiato, mocha
+  -- other options...
+})
 ```
 
 ### Changing Font

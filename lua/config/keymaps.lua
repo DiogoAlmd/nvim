@@ -1,4 +1,3 @@
--- Definir a tecla leader como espaço
 vim.g.mapleader = " "
 
 -- Keybinds para navegação do LSP

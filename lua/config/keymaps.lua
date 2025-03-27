@@ -29,3 +29,57 @@ vim.keymap.set('n', '<leader>ps', function() require('telescope.builtin').live_g
 vim.keymap.set('n', '<leader>pb', function() require('telescope.builtin').buffers() end, { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>pb', function() require('telescope.builtin').git_files() end, { noremap = true, silent = true })
 
+local map = vim.keymap.set
+
+-- Better window navigation
+map("n", "<C-h>", "<C-w>h", { desc = "Navigate to left window" })
+map("n", "<C-j>", "<C-w>j", { desc = "Navigate to bottom window" })
+map("n", "<C-k>", "<C-w>k", { desc = "Navigate to top window" })
+map("n", "<C-l>", "<C-w>l", { desc = "Navigate to right window" })
+
+-- Resize with arrows
+map("n", "<C-Up>", ":resize -2<CR>", { desc = "Decrease window height" })
+map("n", "<C-Down>", ":resize +2<CR>", { desc = "Increase window height" })
+map("n", "<C-Left>", ":vertical resize -2<CR>", { desc = "Decrease window width" })
+map("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Increase window width" })
+
+-- Better indenting
+map("v", "<", "<gv", { desc = "Indent left" })
+map("v", ">", ">gv", { desc = "Indent right" })
+
+-- Move selected line / block of text in visual mode
+map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
+map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
+
+-- Keep cursor centered when scrolling
+map("n", "<C-d>", "<C-d>zz", { desc = "Scroll down and center" })
+map("n", "<C-u>", "<C-u>zz", { desc = "Scroll up and center" })
+
+-- Keep cursor centered when searching
+map("n", "n", "nzzzv", { desc = "Next search result and center" })
+map("n", "N", "Nzzzv", { desc = "Previous search result and center" })
+
+-- Clear search with <esc>
+map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Clear search and escape" })
+
+-- Save file
+map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
+
+-- Better paste
+map("v", "p", '"_dP', { desc = "Better paste" })
+
+-- Cancel
+map("i", "<C-c>", "<Esc>", { desc = "Exit insert mode" })
+
+-- Diagnostic keymaps
+map("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
+map("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
+map("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic error messages" })
+map("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic quickfix list" })
+
+-- Disable arrow keys in normal mode
+map("n", "<Up>", "<Nop>", { desc = "Disable up arrow key" })
+map("n", "<Down>", "<Nop>", { desc = "Disable down arrow key" })
+map("n", "<Left>", "<Nop>", { desc = "Disable left arrow key" })
+map("n", "<Right>", "<Nop>", { desc = "Disable right arrow key" })
+

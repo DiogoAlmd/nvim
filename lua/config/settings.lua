@@ -1,32 +1,52 @@
-vim.opt.guicursor = ""
+local opt = vim.opt
+local g = vim.g
 
-vim.opt.number = true
-vim.opt.relativenumber = true
+-- Disable netrw for neo-tree
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+-- General settings
+opt.encoding = "utf-8"
+opt.fileencoding = "utf-8"
+opt.number = true
+opt.relativenumber = true
+opt.wrap = false
+opt.expandtab = true
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.smartindent = true
+opt.termguicolors = true
+opt.ignorecase = true
+opt.smartcase = true
+opt.clipboard = "unnamedplus"
+opt.backup = false
+opt.writebackup = false
+opt.swapfile = false
+opt.updatetime = 50
+opt.timeoutlen = 300
+opt.completeopt = "menuone,noselect"
+opt.signcolumn = "yes"
+opt.scrolloff = 8
+opt.sidescrolloff = 8
+opt.cursorline = true
+opt.mouse = "a"
 
-vim.opt.smartindent = true
+-- Set leader key to space
+g.mapleader = " "
+g.maplocalleader = " "
 
-vim.opt.wrap = false
+-- Theme settings (will be configurable later)
+opt.background = "dark"
 
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undofile = true
-vim.opt.clipboard = "unnamed"
+-- Persistent undo
+opt.undofile = true
+local undodir = vim.fn.stdpath("data") .. "/undo"
+opt.undodir = undodir
 
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
-
-vim.opt.termguicolors = true
-
-vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
-
-vim.opt.timeoutlen = 1000
-vim.opt.updatetime = 50
+-- Create undo directory if it doesn't exist
+if vim.fn.isdirectory(undodir) == 0 then
+  vim.fn.mkdir(undodir, "p")
+end
 
 vim.cmd [[autocmd InsertLeave * silent! write]]
 

@@ -13,8 +13,8 @@ vim.keymap.set('n', '<S-A-f>', function() vim.lsp.buf.format({ async = true }) e
 -- Correção automática do ESLint (fix all auto-fixable problems)
 vim.keymap.set('n', '<leader>cf', '<cmd>ALEFix<CR>', { noremap = true, silent = true })
 
--- Sugestão de código com Ctrl + Espaço
-vim.keymap.set('i', '<C-Space>', function() require('cmp').complete() end, { noremap = true, silent = true })
+-- Sugestão de código com Alt + Espaço
+vim.keymap.set('i', '<M-Space>', function() require('cmp').complete() end, { noremap = true, silent = true })
 
 -- Comandos LSP (comandos com d)
 vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next, { noremap = true, silent = true })

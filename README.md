@@ -14,6 +14,51 @@ A modern Neovim configuration focused on web development with a beautiful UI and
 - 🎯 Format on save
 - ⌨️ Intuitive keybindings
 
+## File Icons
+
+The configuration includes custom file icons for better visibility:
+
+### Development Files
+- JavaScript (`.js`) - 
+- TypeScript (`.ts`) - 󰛦
+- React (`.jsx`) - 
+- React TS (`.tsx`) - 
+- Vue (`.vue`) - 󰡄
+- CSS (`.css`) - 
+- SCSS (`.scss`) - 
+- HTML (`.html`) - 
+- Lua (`.lua`) - 
+- Python (`.py`) - 
+- JSON (`.json`) - 
+- YAML (`.yaml`) - 
+- TOML (`.toml`) - 
+
+### Documentation & Config
+- Markdown (`.md`) - 
+- Environment (`.env`) - 
+- Git (`.gitignore`) - 
+
+### Media Files
+- Images (`.jpg`, `.jpeg`, `.png`) - 
+- Vector (`.svg`) - 
+
+### Folder Icons
+- Closed Folder - 
+- Open Folder - 
+- Empty Folder - 
+- Empty Open Folder - 
+
+### Git Status Icons
+- Added - 
+- Modified - 
+- Deleted - ✖
+- Renamed - 󰁕
+- Untracked - 
+- Ignored - 
+- Unstaged - 󰄱
+- Staged - 
+- Conflict - 
+
 ## Key Bindings
 
 ### General
@@ -23,30 +68,38 @@ A modern Neovim configuration focused on web development with a beautiful UI and
 - `<M-Space>` - Trigger code completion
 
 ### File Navigation (Neo-tree)
+#### Opening Neo-tree
 - `<leader>b` - Toggle file explorer (project root)
 - `<leader>e` - Toggle file explorer (current working dir)
 - `<leader>E` - Toggle file explorer (current file dir)
 
-Neo-tree Navigation:
+#### Navigation Commands
 - `hjkl` or arrow keys - Navigate tree
-- `Enter` - Open file
-- `o` - Open file
-- `<C-v>` - Open in vertical split
-- `<C-x>` - Open in horizontal split
-- `<C-t>` - Open in new tab
-- `H` - Toggle hidden files
-- `R` - Refresh tree
+- `l` - Open file/expand directory
+- `h` - Close directory
+- `v` - Open in vertical split
+- `s` - Open in horizontal split
+- `t` - Open in new tab
+- `w` - Open with window picker
+
+#### File Operations
 - `a` - Add new file
-- `d` - Delete file
-- `r` - Rename file
-- `y` - Copy file name
-- `Y` - Copy relative path
-- `gy` - Copy absolute path
-- `<Space>` - Mark file
-- `c` - Copy marked files
-- `x` - Cut marked files
-- `p` - Paste files
-- `q` or `<Esc>` - Close Neo-tree
+- `A` - Add new directory
+- `d` - Delete file/directory
+- `r` - Rename
+- `y` - Copy to clipboard
+- `x` - Cut to clipboard
+- `p` - Paste from clipboard
+- `c` - Copy
+- `m` - Move
+
+#### Tree Operations
+- `R` - Refresh tree
+- `C` or `z` - Close all nodes
+- `q` - Close window
+- `?` - Show help
+- `<` - Previous source
+- `>` - Next source
 
 ### Window Management
 - `<C-h>` - Move to left window
@@ -130,6 +183,6 @@ The configuration will automatically:
 
 - Neovim >= 0.9.2
 - Git
-- A Nerd Font
+- A Nerd Font (for icons)
 - Node.js (for LSP servers)
 - ripgrep (for Telescope live grep) 

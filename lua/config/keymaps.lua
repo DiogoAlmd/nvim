@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 -- LSP Navigation
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { noremap = true, silent = true, desc = "Go to definition" })
 vim.keymap.set('n', 'gr', vim.lsp.buf.references, { noremap = true, silent = true, desc = "Find references" })
@@ -21,52 +23,50 @@ vim.keymap.set('n', '<leader>ps', function() require('telescope.builtin').live_g
 vim.keymap.set('n', '<leader>pb', function() require('telescope.builtin').buffers() end, { noremap = true, silent = true, desc = "Find buffers" })
 vim.keymap.set('n', '<leader>pg', function() require('telescope.builtin').git_files() end, { noremap = true, silent = true, desc = "Find git files" })
 
-local map = vim.keymap.set
-
 -- Window navigation
-map("n", "<C-h>", "<C-w>h", { desc = "Navigate to left window" })
-map("n", "<C-j>", "<C-w>j", { desc = "Navigate to bottom window" })
-map("n", "<C-k>", "<C-w>k", { desc = "Navigate to top window" })
-map("n", "<C-l>", "<C-w>l", { desc = "Navigate to right window" })
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Navigate to left window" })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Navigate to bottom window" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Navigate to top window" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Navigate to right window" })
 
 -- Window resizing
-map("n", "<C-Up>", ":resize -2<CR>", { desc = "Decrease window height" })
-map("n", "<C-Down>", ":resize +2<CR>", { desc = "Increase window height" })
-map("n", "<C-Left>", ":vertical resize -2<CR>", { desc = "Decrease window width" })
-map("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Increase window width" })
+vim.keymap.set("n", "<C-Up>", ":resize -2<CR>", { desc = "Decrease window height" })
+vim.keymap.set("n", "<C-Down>", ":resize +2<CR>", { desc = "Increase window height" })
+vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", { desc = "Decrease window width" })
+vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Increase window width" })
 
 -- Text manipulation
-map("v", "<", "<gv", { desc = "Indent left" })
-map("v", ">", ">gv", { desc = "Indent right" })
-map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
-map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
+vim.keymap.set("v", "<", "<gv", { desc = "Indent left" })
+vim.keymap.set("v", ">", ">gv", { desc = "Indent right" })
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 
 -- Better scrolling and searching
-map("n", "<C-d>", "<C-d>zz", { desc = "Scroll down and center" })
-map("n", "<C-u>", "<C-u>zz", { desc = "Scroll up and center" })
-map("n", "n", "nzzzv", { desc = "Next search result and center" })
-map("n", "N", "Nzzzv", { desc = "Previous search result and center" })
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll down and center" })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up and center" })
+vim.keymap.set("n", "n", "nzzzv", { desc = "Next search result and center" })
+vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous search result and center" })
 
 -- Clear search and save
-map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Clear search and escape" })
-map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
+vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Clear search and escape" })
+vim.keymap.set({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
 -- Better paste and cancel
-map("v", "p", '"_dP', { desc = "Better paste" })
-map("i", "<C-c>", "<Esc>", { desc = "Exit insert mode" })
+vim.keymap.set("v", "p", '"_dP', { desc = "Better paste" })
+vim.keymap.set("i", "<C-c>", "<Esc>", { desc = "Exit insert mode" })
 
 -- Diagnostic navigation
-map("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
-map("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
-map("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic quickfix list" })
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic quickfix list" })
 
 -- Disable arrow keys in normal mode
-map("n", "<Up>", "<Nop>", { desc = "Disable up arrow key" })
-map("n", "<Down>", "<Nop>", { desc = "Disable down arrow key" })
-map("n", "<Left>", "<Nop>", { desc = "Disable left arrow key" })
-map("n", "<Right>", "<Nop>", { desc = "Disable right arrow key" })
+vim.keymap.set("n", "<Up>", "<Nop>", { desc = "Disable up arrow key" })
+vim.keymap.set("n", "<Down>", "<Nop>", { desc = "Disable down arrow key" })
+vim.keymap.set("n", "<Left>", "<Nop>", { desc = "Disable left arrow key" })
+vim.keymap.set("n", "<Right>", "<Nop>", { desc = "Disable right arrow key" })
 
 -- Netrw
-map("n", "<leader>pv", vim.cmd.Ex, { desc = "Open Netrw (current dir)" })
-map("n", "<leader>pc", function() vim.cmd("Ex " .. vim.fn.expand("%:p:h")) end, { desc = "Open Netrw at current file" })
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Open Netrw (current dir)" })
+vim.keymap.set("n", "<leader>pc", function() vim.cmd("Ex " .. vim.fn.expand("%:p:h")) end, { desc = "Open Netrw at current file" })
 

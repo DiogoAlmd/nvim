@@ -3,10 +3,6 @@ vim.opt.modifiable = true
 vim.opt.compatible = false
 vim.opt.termguicolors = true
 
--- Set leader key before lazy
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 -- General settings
 local opt = vim.opt
 
@@ -55,7 +51,6 @@ vim.g.netrw_banner = 0        -- Hide banner
 vim.g.netrw_browse_split = 0  -- Open files in the same window
 vim.g.netrw_winsize = 25     -- Set explorer width to 25%
 vim.g.netrw_liststyle = 3    -- Tree style listing
-vim.g.netrw_list_hide = '^\\.'  -- Hide dotfiles by default
 vim.g.netrw_altv = 1         -- Open splits to the right
 vim.g.netrw_preview = 1      -- Open previews vertically
 

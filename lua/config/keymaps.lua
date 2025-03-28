@@ -12,10 +12,22 @@ vim.keymap.set('n', '<leader>ba', ':ball<CR>', { noremap = true, silent = true, 
 vim.keymap.set('n', '<leader>bn', ':enew<CR>', { noremap = true, silent = true, desc = "New buffer" })
 
 -- Split management
-vim.keymap.set('n', '<leader>sv', ':vsplit<CR>', { noremap = true, silent = true, desc = "Split vertically" })
-vim.keymap.set('n', '<leader>sh', ':split<CR>', { noremap = true, silent = true, desc = "Split horizontally" })
-vim.keymap.set('n', '<leader>se', '<C-w>=', { noremap = true, silent = true, desc = "Make splits equal size" })
-vim.keymap.set('n', '<leader>sx', ':close<CR>', { noremap = true, silent = true, desc = "Close current split" })
+vim.keymap.set('n', '<leader>vv', ':vsplit<CR>', { noremap = true, silent = true, desc = "Split vertically" })
+vim.keymap.set('n', '<leader>vh', ':split<CR>', { noremap = true, silent = true, desc = "Split horizontally" })
+vim.keymap.set('n', '<leader>ve', '<C-w>=', { noremap = true, silent = true, desc = "Make splits equal size" })
+vim.keymap.set('n', '<leader>vx', ':close<CR>', { noremap = true, silent = true, desc = "Close current split" })
+
+-- Split navigation
+vim.keymap.set('n', '<A-h>', '<C-w>h', { noremap = true, silent = true, desc = "Move to left split" })
+vim.keymap.set('n', '<A-j>', '<C-w>j', { noremap = true, silent = true, desc = "Move to bottom split" })
+vim.keymap.set('n', '<A-k>', '<C-w>k', { noremap = true, silent = true, desc = "Move to top split" })
+vim.keymap.set('n', '<A-l>', '<C-w>l', { noremap = true, silent = true, desc = "Move to right split" })
+
+-- Window resizing
+vim.keymap.set("n", "<A-Up>", ":resize -2<CR>", { noremap = true, silent = true, desc = "Decrease window height" })
+vim.keymap.set("n", "<A-Down>", ":resize +2<CR>", { noremap = true, silent = true, desc = "Increase window height" })
+vim.keymap.set("n", "<A-Left>", ":vertical resize -2<CR>", { noremap = true, silent = true, desc = "Decrease window width" })
+vim.keymap.set("n", "<A-Right>", ":vertical resize +2<CR>", { noremap = true, silent = true, desc = "Increase window width" })
 
 -- Quick fix and formatting
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { noremap = true, silent = true, desc = "Code actions" })
@@ -23,7 +35,7 @@ vim.keymap.set('n', '<S-A-f>', function() vim.lsp.buf.format({ async = true }) e
 vim.keymap.set('n', '<leader>cf', '<cmd>ALEFix<CR>', { noremap = true, silent = true, desc = "Fix ESLint issues" })
 
 -- Code completion
-vim.keymap.set('i', '<M-Space>', function() require('cmp').complete() end, { noremap = true, silent = true, desc = "Trigger completion" })
+vim.keymap.set('i', '<A-Space>', function() require('cmp').complete() end, { noremap = true, silent = true, desc = "Trigger completion" })
 
 -- Diagnostic navigation
 vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next, { noremap = true, silent = true, desc = "Next diagnostic" })
@@ -41,12 +53,6 @@ vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Navigate to left window" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Navigate to bottom window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Navigate to top window" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Navigate to right window" })
-
--- Window resizing
-vim.keymap.set("n", "<C-Up>", ":resize -2<CR>", { desc = "Decrease window height" })
-vim.keymap.set("n", "<C-Down>", ":resize +2<CR>", { desc = "Increase window height" })
-vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", { desc = "Decrease window width" })
-vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Increase window width" })
 
 -- Text manipulation
 vim.keymap.set("v", "<", "<gv", { desc = "Indent left" })

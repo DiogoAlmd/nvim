@@ -65,7 +65,7 @@ The configuration includes custom file icons for better visibility:
 - `<Space>` - Leader key
 - `<C-s>` - Save file
 - `<Esc>` - Clear search highlighting
-- `<M-Space>` - Trigger code completion
+- `⌥-Space` - Trigger code completion
 
 ### File Navigation and Search
 #### Netrw (File Explorer)
@@ -86,14 +86,20 @@ The configuration includes custom file icons for better visibility:
 - `<leader>bn` - Create new buffer
 
 #### Split Management
-- `<leader>sv` - Split window vertically
-- `<leader>sh` - Split window horizontally
-- `<leader>se` - Make split windows equal size
-- `<leader>sx` - Close current split
-- `<C-h>` - Move cursor to left split
-- `<C-j>` - Move cursor to split below
-- `<C-k>` - Move cursor to split above
-- `<C-l>` - Move cursor to right split
+- `<leader>vv` - Split window vertically
+- `<leader>vh` - Split window horizontally
+- `<leader>ve` - Make split windows equal size
+- `<leader>vx` - Close current split
+
+#### Split Navigation
+- `⌥-h` - Move to left split
+- `⌥-j` - Move to split below
+- `⌥-k` - Move to split above
+- `⌥-l` - Move to right split
+- `⌥-↑` - Decrease window height
+- `⌥-↓` - Increase window height
+- `⌥-←` - Decrease window width
+- `⌥-→` - Increase window width
 
 ### LSP and Code Navigation
 - `gd` - Go to definition
@@ -177,4 +183,4 @@ The configuration will automatically:
 - Git
 - A Nerd Font (for icons)
 - Node.js (for LSP servers)
-- ripgrep (for Telescope live grep) 
+- ripgrep (for Telescope live grep)

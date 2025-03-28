@@ -4,6 +4,19 @@ vim.g.mapleader = " "
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { noremap = true, silent = true, desc = "Go to definition" })
 vim.keymap.set('n', 'gr', vim.lsp.buf.references, { noremap = true, silent = true, desc = "Find references" })
 
+-- Buffer navigation
+vim.keymap.set('n', '<S-h>', ':bprevious<CR>', { noremap = true, silent = true, desc = "Previous buffer" })
+vim.keymap.set('n', '<S-l>', ':bnext<CR>', { noremap = true, silent = true, desc = "Next buffer" })
+vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { noremap = true, silent = true, desc = "Delete buffer" })
+vim.keymap.set('n', '<leader>ba', ':ball<CR>', { noremap = true, silent = true, desc = "Show all buffers" })
+vim.keymap.set('n', '<leader>bn', ':enew<CR>', { noremap = true, silent = true, desc = "New buffer" })
+
+-- Split management
+vim.keymap.set('n', '<leader>sv', ':vsplit<CR>', { noremap = true, silent = true, desc = "Split vertically" })
+vim.keymap.set('n', '<leader>sh', ':split<CR>', { noremap = true, silent = true, desc = "Split horizontally" })
+vim.keymap.set('n', '<leader>se', '<C-w>=', { noremap = true, silent = true, desc = "Make splits equal size" })
+vim.keymap.set('n', '<leader>sx', ':close<CR>', { noremap = true, silent = true, desc = "Close current split" })
+
 -- Quick fix and formatting
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { noremap = true, silent = true, desc = "Code actions" })
 vim.keymap.set('n', '<S-A-f>', function() vim.lsp.buf.format({ async = true }) end, { noremap = true, silent = true, desc = "Format code" })

@@ -78,6 +78,23 @@ The configuration includes custom file icons for better visibility:
 - `<leader>pb` - Find buffers
 - `<leader>pg` - Find git files
 
+#### Buffer Navigation
+- `<S-h>` - Go to previous buffer
+- `<S-l>` - Go to next buffer
+- `<leader>bd` - Delete current buffer
+- `<leader>ba` - Show all buffers in windows
+- `<leader>bn` - Create new buffer
+
+#### Split Management
+- `<leader>sv` - Split window vertically
+- `<leader>sh` - Split window horizontally
+- `<leader>se` - Make split windows equal size
+- `<leader>sx` - Close current split
+- `<C-h>` - Move cursor to left split
+- `<C-j>` - Move cursor to split below
+- `<C-k>` - Move cursor to split above
+- `<C-l>` - Move cursor to right split
+
 ### LSP and Code Navigation
 - `gd` - Go to definition
 - `gD` - Go to declaration

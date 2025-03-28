@@ -1,11 +1,11 @@
 return {
   {
-    "savq/melange-nvim",
+    "rebelot/kanagawa.nvim",
     priority = 1000,
     lazy = false,
     config = function()
       vim.opt.termguicolors = true
-      vim.cmd.colorscheme("melange")
+      vim.cmd.colorscheme("kanagawa")
     end,
   },
   {
@@ -13,18 +13,15 @@ return {
     event = "VeryLazy",
     opts = {
       options = {
-        theme = "melange",
+        theme = "kanagawa",
         globalstatus = true,
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
       },
       sections = {
         lualine_a = { "mode" },
-        lualine_b = { "branch" },
-        lualine_c = { "filename" },
-        lualine_x = { "encoding", "fileformat", "filetype" },
-        lualine_y = { "progress" },
-        lualine_z = { "location" }
+        lualine_b = { "filename" },
+        lualine_c = { "location" }
       },
     },
   }

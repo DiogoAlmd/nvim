@@ -4,7 +4,7 @@ A modern Neovim configuration focused on web development with a beautiful UI and
 
 ## Features
 
-- 🎨 Beautiful UI with Melange theme
+- 🎨 Beautiful UI with Kanagawa theme
 - 📁 Built-in file explorer with enhanced Netrw
 - 🔍 Fuzzy finding with Telescope
 - ⚡ Fast completion with nvim-cmp
@@ -112,6 +112,8 @@ The configuration includes custom file icons for better visibility:
 - `<leader>ca` - Code actions
 - `<leader>cf` - Fix ESLint issues
 - `<S-A-f>` - Format code
+- `<C-o>` - Go back to previous location
+- `<C-i>` - Go forward to next location
 
 ### Workspace Management
 - `<leader>wa` - Add workspace folder

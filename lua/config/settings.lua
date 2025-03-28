@@ -7,10 +7,6 @@ vim.opt.termguicolors = true
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Disable netrw for neo-tree
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
 -- General settings
 local opt = vim.opt
 
@@ -54,10 +50,14 @@ opt.background = "dark"
 -- Clipboard settings
 opt.clipboard = "unnamedplus"
 
--- Netrw settings (fallback)
-vim.g.netrw_browse_split = 0
-vim.g.netrw_banner = 0
-vim.g.netrw_winsize = 25
+-- Netrw settings
+vim.g.netrw_banner = 0        -- Hide banner
+vim.g.netrw_browse_split = 0  -- Open files in the same window
+vim.g.netrw_winsize = 25     -- Set explorer width to 25%
+vim.g.netrw_liststyle = 3    -- Tree style listing
+vim.g.netrw_list_hide = '^\\.'  -- Hide dotfiles by default
+vim.g.netrw_altv = 1         -- Open splits to the right
+vim.g.netrw_preview = 1      -- Open previews vertically
 
 -- Fix space key behavior
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })

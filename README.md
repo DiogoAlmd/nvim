@@ -5,7 +5,7 @@ A modern Neovim configuration focused on web development with a beautiful UI and
 ## Features
 
 - 🎨 Beautiful UI with Melange theme
-- 📁 File explorer with Neo-tree
+- 📁 Built-in file explorer with enhanced Netrw
 - 🔍 Fuzzy finding with Telescope
 - ⚡ Fast completion with nvim-cmp
 - 🔧 Built-in LSP configuration
@@ -67,39 +67,41 @@ The configuration includes custom file icons for better visibility:
 - `<Esc>` - Clear search highlighting
 - `<M-Space>` - Trigger code completion
 
-### File Navigation (Neo-tree)
-#### Opening Neo-tree
-- `<leader>b` - Toggle file explorer (project root)
-- `<leader>e` - Toggle file explorer (current working dir)
-- `<leader>E` - Toggle file explorer (current file dir)
+### File Navigation and Search
+#### Netrw (File Explorer)
+- `<leader>pv` - Open Netrw in current directory
+- `<leader>pc` - Open Netrw at current file location
 
-#### Navigation Commands
-- `hjkl` or arrow keys - Navigate tree
-- `l` - Open file/expand directory
-- `h` - Close directory
-- `v` - Open in vertical split
-- `s` - Open in horizontal split
-- `t` - Open in new tab
-- `w` - Open with window picker
+#### Telescope (Fuzzy Finder)
+- `<leader>pf` - Find files
+- `<leader>ps` - Search in files (live grep)
+- `<leader>pb` - Find buffers
+- `<leader>pg` - Find git files
 
-#### File Operations
-- `a` - Add new file
-- `A` - Add new directory
-- `d` - Delete file/directory
-- `r` - Rename
-- `y` - Copy to clipboard
-- `x` - Cut to clipboard
-- `p` - Paste from clipboard
-- `c` - Copy
-- `m` - Move
+### LSP and Code Navigation
+- `gd` - Go to definition
+- `gD` - Go to declaration
+- `gr` - Find references
+- `gi` - Go to implementation
+- `K` - Show hover information
+- `<C-k>` - Show signature help
+- `<leader>rn` - Rename symbol
+- `<leader>ca` - Code actions
+- `<leader>cf` - Fix ESLint issues
+- `<S-A-f>` - Format code
 
-#### Tree Operations
-- `R` - Refresh tree
-- `C` or `z` - Close all nodes
-- `q` - Close window
-- `?` - Show help
-- `<` - Previous source
-- `>` - Next source
+### Workspace Management
+- `<leader>wa` - Add workspace folder
+- `<leader>wr` - Remove workspace folder
+- `<leader>wl` - List workspace folders
+
+### Diagnostic Navigation
+- `<leader>e` - Show diagnostic details
+- `<leader>dn` - Next diagnostic
+- `<leader>dp` - Previous diagnostic
+- `[d` - Previous diagnostic
+- `]d` - Next diagnostic
+- `<leader>q` - Open diagnostic quickfix list
 
 ### Window Management
 - `<C-h>` - Move to left window
@@ -111,28 +113,6 @@ The configuration includes custom file icons for better visibility:
 - `<C-Left>` - Decrease window width
 - `<C-Right>` - Increase window width
 
-### Search (Telescope)
-- `<leader>ff` - Find files
-- `<leader>fg` - Live grep
-- `<leader>fb` - Find buffers
-- `<leader>fh` - Help tags
-- `<leader>fr` - Recent files
-- `<leader>fc` - Commands
-- `<leader>fs` - Document symbols
-- `<leader>fS` - Workspace symbols
-- `<leader>fd` - Diagnostics
-- `<leader>/` - Fuzzy search in current buffer
-
-### LSP
-- `<leader>gd` - Go to definition
-- `<leader>gr` - Find references
-- `<leader>ca` - Code actions
-- `<S-A-f>` - Format file
-- `<leader>cf` - Fix ESLint issues
-- `<leader>dn` - Next diagnostic
-- `<leader>dp` - Previous diagnostic
-- `<leader>de` - Show diagnostic details
-
 ### Text Manipulation
 - `<` and `>` - Indent/unindent (visual mode)
 - `J` - Move line down (visual mode)
@@ -140,21 +120,16 @@ The configuration includes custom file icons for better visibility:
 - `<C-d>` - Scroll down (centered)
 - `<C-u>` - Scroll up (centered)
 
-### Git
-- `<leader>gs` - Git status
-- `<leader>gb` - Git blame
-- `<leader>gl` - Git log
-- `]h` - Next hunk
-- `[h` - Previous hunk
-- `<leader>hs` - Stage hunk
-- `<leader>hr` - Reset hunk
-- `<leader>hS` - Stage buffer
-- `<leader>hu` - Undo stage hunk
-- `<leader>hR` - Reset buffer
-- `<leader>hp` - Preview hunk
-- `<leader>hb` - Blame line
-- `<leader>hd` - Diff this
-- `<leader>hD` - Diff this ~
+### Search and Save
+- `n` - Next search result (centered)
+- `N` - Previous search result (centered)
+- `<Esc>` - Clear search highlighting
+- `<C-s>` - Save file
+
+### Clipboard and Paste
+- `y` - Yank to system clipboard
+- `p` - Paste from system clipboard
+- `P` - Paste before from system clipboard
 
 ## Installation
 

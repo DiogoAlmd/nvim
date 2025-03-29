@@ -14,58 +14,14 @@ A modern Neovim configuration focused on web development with a beautiful UI and
 - 🎯 Format on save
 - ⌨️ Intuitive keybindings
 
-## File Icons
-
-The configuration includes custom file icons for better visibility:
-
-### Development Files
-- JavaScript (`.js`) - 
-- TypeScript (`.ts`) - 󰛦
-- React (`.jsx`) - 
-- React TS (`.tsx`) - 
-- Vue (`.vue`) - 󰡄
-- CSS (`.css`) - 
-- SCSS (`.scss`) - 
-- HTML (`.html`) - 
-- Lua (`.lua`) - 
-- Python (`.py`) - 
-- JSON (`.json`) - 
-- YAML (`.yaml`) - 
-- TOML (`.toml`) - 
-
-### Documentation & Config
-- Markdown (`.md`) - 
-- Environment (`.env`) - 
-- Git (`.gitignore`) - 
-
-### Media Files
-- Images (`.jpg`, `.jpeg`, `.png`) - 
-- Vector (`.svg`) - 
-
-### Folder Icons
-- Closed Folder - 
-- Open Folder - 
-- Empty Folder - 
-- Empty Open Folder - 
-
-### Git Status Icons
-- Added - 
-- Modified - 
-- Deleted - ✖
-- Renamed - 󰁕
-- Untracked - 
-- Ignored - 
-- Unstaged - 󰄱
-- Staged - 
-- Conflict - 
-
 ## Key Bindings
 
 ### General
 - `<Space>` - Leader key
 - `<C-s>` - Save file
 - `<Esc>` - Clear search highlighting
-- `⌥-Space` - Trigger code completion
+- `<leader>uc` - Toggle code completion
+- `<C-⌥-Space>` - Trigger code completion (in insert mode)
 
 ### File Navigation and Search
 #### Netrw (File Explorer)
@@ -104,16 +60,17 @@ The configuration includes custom file icons for better visibility:
 ### LSP and Code Navigation
 - `gd` - Go to definition
 - `gD` - Go to declaration
-- `gr` - Find references
 - `gi` - Go to implementation
-- `K` - Show hover information
-- `<C-k>` - Show signature help
+- `gr` - Go to references
+- `K` - Show hover documentation
 - `<leader>rn` - Rename symbol
 - `<leader>ca` - Code actions
-- `<leader>cf` - Fix ESLint issues
-- `<S-A-f>` - Format code
-- `<C-o>` - Go back to previous location
-- `<C-i>` - Go forward to next location
+- `<leader>qf` - Quick fix
+- `<leader>f` - Format document
+- `<leader>e` - Show diagnostics in float
+- `[d` - Go to previous diagnostic
+- `]d` - Go to next diagnostic
+- `<leader>q` - Show diagnostics in location list
 
 ### Workspace Management
 - `<leader>wa` - Add workspace folder
@@ -129,14 +86,14 @@ The configuration includes custom file icons for better visibility:
 - `<leader>q` - Open diagnostic quickfix list
 
 ### Window Management
-- `<C-h>` - Move to left window
-- `<C-j>` - Move to bottom window
-- `<C-k>` - Move to top window
-- `<C-l>` - Move to right window
-- `<C-Up>` - Decrease window height
-- `<C-Down>` - Increase window height
-- `<C-Left>` - Decrease window width
-- `<C-Right>` - Increase window width
+- `⌥-h` - Move to left window
+- `⌥-j` - Move to bottom window
+- `⌥-k` - Move to top window
+- `⌥-l` - Move to right window
+- `⌥-↑` - Decrease window height
+- `⌥-↓` - Increase window height
+- `⌥-←` - Decrease window width
+- `⌥-→` - Increase window width
 
 ### Text Manipulation
 - `<` and `>` - Indent/unindent (visual mode)

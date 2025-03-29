@@ -3,6 +3,15 @@ vim.opt.modifiable = true
 vim.opt.compatible = false
 vim.opt.termguicolors = true
 
+-- macOS specific settings
+vim.opt.mouse = "a"     -- Enable mouse support
+
+-- Handle terminal resize
+vim.api.nvim_create_autocmd("VimResized", {
+  pattern = "*",
+  command = "wincmd =",
+})
+
 -- General settings
 local opt = vim.opt
 
@@ -38,7 +47,6 @@ opt.signcolumn = "yes"
 opt.scrolloff = 8
 opt.sidescrolloff = 8
 opt.cursorline = true
-opt.mouse = "a"
 
 -- Theme settings
 opt.background = "dark"

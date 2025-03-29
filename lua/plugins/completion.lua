@@ -16,7 +16,23 @@ return {
       local luasnip = require("luasnip")
       require("luasnip.loaders.from_vscode").lazy_load()
 
+      -- Variable to control completion state
+      local cmp_enabled = true
+
+      -- Create a command to toggle completion
+      vim.api.nvim_create_user_command('CmpToggle', function()
+        cmp_enabled = not cmp_enabled
+        if cmp_enabled then
+          vim.notify('Code completion enabled', vim.log.levels.INFO)
+        else
+          vim.notify('Code completion disabled', vim.log.levels.INFO)
+        end
+      end, {})
+
       cmp.setup({
+        enabled = function()
+          return cmp_enabled
+        end,
         completion = {
           completeopt = "menu,menuone,noinsert",
         },
@@ -26,11 +42,11 @@ return {
           end,
         },
         mapping = cmp.mapping.preset.insert({
-          ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-          ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+          ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+          ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
-          ["<M-Space>"] = cmp.mapping.complete(),
+          ["<C-Space>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping.abort(),
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
           ["<Tab>"] = cmp.mapping(function(fallback)
@@ -51,54 +67,28 @@ return {
               fallback()
             end
           end, { "i", "s" }),
+          ["<C-A-Space>"] = cmp.mapping.complete(),
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
           { name = "luasnip" },
+        }, {
           { name = "buffer" },
           { name = "path" },
+          { name = "copilot", group_index = 2 },
         }),
-        formatting = {
-          format = function(_, item)
-            local icons = {
-              Text = "  ",
-              Method = "  ",
-              Function = "  ",
-              Constructor = "  ",
-              Field = "  ",
-              Variable = "  ",
-              Class = "  ",
-              Interface = "  ",
-              Module = "  ",
-              Property = "  ",
-              Unit = "  ",
-              Value = "  ",
-              Enum = "  ",
-              Keyword = "  ",
-              Snippet = "  ",
-              Color = "  ",
-              File = "  ",
-              Reference = "  ",
-              Folder = "  ",
-              EnumMember = "  ",
-              Constant = "  ",
-              Struct = "  ",
-              Event = "  ",
-              Operator = "  ",
-              TypeParameter = "  ",
-            }
-            if icons[item.kind] then
-              item.kind = icons[item.kind] .. item.kind
-            end
-            return item
-          end,
-        },
         experimental = {
           ghost_text = {
             hl_group = "LspCodeLens",
           },
         },
+        formatting = {
+          format = function(entry, vim_item)
+            vim_item.kind = string.format('%s %s', vim_item.kind, entry:get_completion_item().detail or '')
+            return vim_item
+          end,
+        },
       })
     end,
   },
-} 
+}

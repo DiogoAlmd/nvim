@@ -23,11 +23,11 @@ vim.keymap.set('n', '<A-j>', '<C-w>j', { noremap = true, silent = true, desc = "
 vim.keymap.set('n', '<A-k>', '<C-w>k', { noremap = true, silent = true, desc = "Move to top split" })
 vim.keymap.set('n', '<A-l>', '<C-w>l', { noremap = true, silent = true, desc = "Move to right split" })
 
--- Window resizing
-vim.keymap.set("n", "<A-Up>", ":resize -2<CR>", { noremap = true, silent = true, desc = "Decrease window height" })
-vim.keymap.set("n", "<A-Down>", ":resize +2<CR>", { noremap = true, silent = true, desc = "Increase window height" })
-vim.keymap.set("n", "<A-Left>", ":vertical resize -2<CR>", { noremap = true, silent = true, desc = "Decrease window width" })
-vim.keymap.set("n", "<A-Right>", ":vertical resize +2<CR>", { noremap = true, silent = true, desc = "Increase window width" })
+-- Window resizing with Option key
+vim.keymap.set('n', '<A-Up>', ':resize -2<CR>', { noremap = true, silent = true, desc = "Decrease window height" })
+vim.keymap.set('n', '<A-Down>', ':resize +2<CR>', { noremap = true, silent = true, desc = "Increase window height" })
+vim.keymap.set('n', '<A-Left>', ':vertical resize -2<CR>', { noremap = true, silent = true, desc = "Decrease window width" })
+vim.keymap.set('n', '<A-Right>', ':vertical resize +2<CR>', { noremap = true, silent = true, desc = "Increase window width" })
 
 -- Quick fix and formatting
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { noremap = true, silent = true, desc = "Code actions" })
@@ -35,7 +35,8 @@ vim.keymap.set('n', '<S-A-f>', function() vim.lsp.buf.format({ async = true }) e
 vim.keymap.set('n', '<leader>cf', '<cmd>ALEFix<CR>', { noremap = true, silent = true, desc = "Fix ESLint issues" })
 
 -- Code completion
-vim.keymap.set('i', '<A-Space>', function() require('cmp').complete() end, { noremap = true, silent = true, desc = "Trigger completion" })
+vim.keymap.set('i', '<C-A-Space>', function() require('cmp').complete() end, { noremap = true, silent = true, desc = "Trigger completion" })
+vim.keymap.set('n', '<leader>uc', '<cmd>CmpToggle<CR>', { noremap = true, silent = true, desc = "Toggle code completion" })
 
 -- Diagnostic navigation
 vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next, { noremap = true, silent = true, desc = "Next diagnostic" })
@@ -48,11 +49,11 @@ vim.keymap.set('n', '<leader>ps', function() require('telescope.builtin').live_g
 vim.keymap.set('n', '<leader>pb', function() require('telescope.builtin').buffers() end, { noremap = true, silent = true, desc = "Find buffers" })
 vim.keymap.set('n', '<leader>pg', function() require('telescope.builtin').git_files() end, { noremap = true, silent = true, desc = "Find git files" })
 
--- Window navigation
-vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Navigate to left window" })
-vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Navigate to bottom window" })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Navigate to top window" })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Navigate to right window" })
+-- Window navigation with Option key
+vim.keymap.set('n', '<A-h>', '<C-w>h', { noremap = true, silent = true, desc = "Move to left window" })
+vim.keymap.set('n', '<A-j>', '<C-w>j', { noremap = true, silent = true, desc = "Move to bottom window" })
+vim.keymap.set('n', '<A-k>', '<C-w>k', { noremap = true, silent = true, desc = "Move to top window" })
+vim.keymap.set('n', '<A-l>', '<C-w>l', { noremap = true, silent = true, desc = "Move to right window" })
 
 -- Text manipulation
 vim.keymap.set("v", "<", "<gv", { desc = "Indent left" })

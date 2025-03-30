@@ -67,7 +67,6 @@ return {
               fallback()
             end
           end, { "i", "s" }),
-          ["<C-A-Space>"] = cmp.mapping.complete(),
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp" },

@@ -1,7 +1,7 @@
 -- Basic vim options that should be set first
 vim.opt.modifiable = true
 vim.opt.compatible = false
-vim.opt.termguicolors = true
+vim.opt.termguicolors = false
 
 -- macOS specific settings
 vim.opt.mouse = "a"     -- Enable mouse support
@@ -47,9 +47,6 @@ opt.signcolumn = "yes"
 opt.scrolloff = 8
 opt.sidescrolloff = 8
 opt.cursorline = true
-
--- Theme settings
-opt.background = "dark"
 
 -- Clipboard settings
 opt.clipboard = "unnamedplus"

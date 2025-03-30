@@ -90,3 +90,6 @@ vim.keymap.set("n", "<Right>", "<Nop>", { desc = "Disable right arrow key" })
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Open Netrw (current dir)" })
 vim.keymap.set("n", "<leader>pc", function() vim.cmd("Ex " .. vim.fn.expand("%:p:h")) end, { desc = "Open Netrw at current file" })
 
+-- Get out of terminal mode
+vim.api.nvim_set_keymap( "t", "<Leader><ESC>", "<C-\\><C-n>", {noremap = true} )
+

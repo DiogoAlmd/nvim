@@ -16,16 +16,10 @@ return {
         -- Web development
         "ts_ls",          -- TypeScript/JavaScript
         -- "eslint",         -- ESLint
-        "html",           -- HTML
-        "cssls",          -- CSS
-        "tailwindcss",    -- Tailwind CSS
-        
         -- Python
         -- "pyright",        -- Python
-        
         -- Lua
         "lua_ls",         -- Lua
-        
         -- JSON
         "jsonls",         -- JSON
       }

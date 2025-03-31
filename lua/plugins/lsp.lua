@@ -15,7 +15,7 @@ return {
       local servers = {
         -- Web development
         "ts_ls",          -- TypeScript/JavaScript
-        "eslint",         -- ESLint
+        -- "eslint",         -- ESLint
         "html",           -- HTML
         "cssls",          -- CSS
         "tailwindcss",    -- Tailwind CSS
@@ -88,7 +88,7 @@ return {
     opts = {
       ensure_installed = {
         "typescript-language-server",
-        "eslint-lsp",
+        -- "eslint-lsp",
         "pyright",
         "lua-language-server",
         "json-lsp",

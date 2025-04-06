@@ -82,7 +82,6 @@ return {
     opts = {
       ensure_installed = {
         "typescript-language-server",
-        -- "eslint-lsp",
         "pyright",
         "lua-language-server",
         "json-lsp",
@@ -90,6 +89,7 @@ return {
         "stylua",
         "isort",
         "black",
+        "biome",
       },
     },
     config = function(_, opts)

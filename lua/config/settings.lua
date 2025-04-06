@@ -1,7 +1,7 @@
 -- Basic vim options that should be set first
 vim.opt.modifiable = true
 vim.opt.compatible = false
-vim.opt.termguicolors = false
+vim.opt.termguicolors = true
 
 -- macOS specific settings
 vim.opt.mouse = "a"     -- Enable mouse support

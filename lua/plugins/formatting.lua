@@ -16,19 +16,28 @@ return {
       formatters_by_ft = {
         lua = { "stylua" },
         python = { "isort", "black" },
-        javascript = { { "prettierd", "prettier" } },
-        typescript = { { "prettierd", "prettier" } },
-        javascriptreact = { { "prettierd", "prettier" } },
-        typescriptreact = { { "prettierd", "prettier" } },
-        json = { { "prettierd", "prettier" } },
-        yaml = { { "prettierd", "prettier" } },
-        markdown = { { "prettierd", "prettier" } },
-        html = { { "prettierd", "prettier" } },
-        css = { { "prettierd", "prettier" } },
+        javascript = { "biome", "prettierd", "prettier" },
+        typescript = { "biome", "prettierd", "prettier" },
+        javascriptreact = { "biome", "prettierd", "prettier" },
+        typescriptreact = { "biome", "prettierd", "prettier" },
+        json = { "biome", "prettierd", "prettier" },
+        yaml = { "prettierd", "prettier" },
+        markdown = { "prettierd", "prettier" },
+        html = { "prettierd", "prettier" },
+        css = { "prettierd", "prettier" },
       },
       format_on_save = {
         timeout_ms = 500,
         lsp_fallback = true,
+      },
+      -- Correção da opção obsoleta:
+      -- stop_on_first_success substitui o uso de {{}}
+      formatters = {
+        biome = {
+          command = "biome",
+          args = { "format", "--stdin-file-path", "$FILENAME" },
+          stdin = true,
+        },
       },
     },
   },
@@ -37,14 +46,6 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     config = function()
       local lint = require("lint")
-
-      -- lint.linters_by_ft = {
-      --   javascript = { "eslint_d" },
-      --   typescript = { "eslint_d" },
-      --   javascriptreact = { "eslint_d" },
-      --   typescriptreact = { "eslint_d" },
-      --   python = { "pylint" },
-      -- }
 
       local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
@@ -60,4 +61,4 @@ return {
       end, { desc = "Trigger linting for current file" })
     end,
   },
-} 
+}

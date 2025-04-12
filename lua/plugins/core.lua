@@ -21,4 +21,10 @@ return {
     main = "ibl",
     opts = {},
   },
+  {
+    "numToStr/Comment.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    config = true,
+    opts = {}
+  },
 } 

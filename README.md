@@ -4,7 +4,7 @@ A modern Neovim configuration focused on web development with a beautiful UI and
 
 ## Features
 
-- 🎨 Beautiful UI with Kanagawa theme
+- 🎨 Beautiful UI with Catppuccin theme
 - 📁 Built-in file explorer with enhanced Netrw
 - 🔍 Fuzzy finding with Telescope
 - ⚡ Fast completion with nvim-cmp
@@ -112,6 +112,21 @@ A modern Neovim configuration focused on web development with a beautiful UI and
 - `y` - Yank to system clipboard
 - `p` - Paste from system clipboard
 - `P` - Paste before from system clipboard
+
+### 📝 Comments (Comment.nvim)
+
+| Keybinding | Mode         | Description                             |
+|------------|--------------|-----------------------------------------|
+| `gc`       | Visual/Normal| Toggle line comment (operator-pending)  |
+| `gb`       | Visual/Normal| Toggle block comment (operator-pending) |
+| `gcc`      | Normal       | Toggle line comment for current line    |
+| `gbc`      | Normal       | Toggle block comment for current line   |
+| `gcO`      | Normal       | Add comment line **above**              |
+| `gco`      | Normal       | Add comment line **below**              |
+| `gcA`      | Normal       | Add comment at **end of current line**  |
+
+> 💡 In visual mode, `gc` or `gb` comment the selected block.  
+> In normal mode, `gcc` and `gbc` act on the current line.
 
 ## Installation
 

@@ -128,6 +128,18 @@ A modern Neovim configuration focused on web development with a beautiful UI and
 > 💡 In visual mode, `gc` or `gb` comment the selected block.  
 > In normal mode, `gcc` and `gbc` act on the current line.
 
+### 🔀 Move Lines / Blocks
+
+| Keybinding    | Mode   | Description              |
+|---------------|--------|--------------------------|
+| `<leader>mj`  | Normal | Move current line down   |
+| `<leader>mk`  | Normal | Move current line up     |
+| `<leader>mj`  | Visual | Move selected block down |
+| `<leader>mk`  | Visual | Move selected block up   |
+
+> 💡 `m` stands for *move*, `j` for down, `k` for up.
+
+
 ## Installation
 
 1. Backup your existing Neovim configuration:

@@ -75,3 +75,10 @@ vim.keymap.set("n", "<leader>pc", function() vim.cmd("Ex " .. vim.fn.expand("%:p
 -- Get out of terminal mode
 vim.api.nvim_set_keymap( "t", "<Leader><ESC>", "<C-\\><C-n>", {noremap = true} )
 
+-- Move code
+vim.keymap.set("n", "<leader>mj", ":m .+1<CR>==", { desc = "Move line down", silent = true })
+vim.keymap.set("n", "<leader>mk", ":m .-2<CR>==", { desc = "Move line up", silent = true })
+
+vim.keymap.set("v", "<leader>mj", ":m '>+1<CR>gv=gv", { desc = "Move block down", silent = true })
+vim.keymap.set("v", "<leader>mk", ":m '<-2<CR>gv=gv", { desc = "Move block up", silent = true })
+

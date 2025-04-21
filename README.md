@@ -4,7 +4,7 @@ A modern Neovim configuration focused on web development with a beautiful UI and
 
 ## Features
 
-- 🎨 Beautiful UI with Catppuccin theme
+- 🎨 Beautiful UI with Carbonfox theme
 - 📁 Built-in file explorer with enhanced Netrw
 - 🔍 Fuzzy finding with Telescope
 - ⚡ Fast completion with nvim-cmp

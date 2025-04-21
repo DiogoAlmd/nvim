@@ -1,32 +1,25 @@
 return {
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    "EdenEast/nightfox.nvim",
+    name = "nightfox",
     priority = 1000,
     config = function()
-      require("catppuccin").setup({
-        flavour = "frappe", -- latte, frappe, macchiato, mocha
-        transparent_background = false,
-        term_colors = true,
-        integrations = {
-          cmp = true,
-          gitsigns = true,
-          treesitter = true,
-          telescope = true,
-          which_key = true,
-          native_lsp = {
-            enabled = true,
-            underlines = {
-              errors = { "undercurl" },
-              hints = { "undercurl" },
-              warnings = { "undercurl" },
-              information = { "undercurl" },
-            },
+      require("nightfox").setup({
+        options = {
+          transparent = false,
+          terminal_colors = true,
+          dim_inactive = false,
+          styles = {
+            comments = "italic",
+            keywords = "bold",
+            functions = "bold",
+            strings = "NONE",
+            variables = "NONE",
           },
         },
       })
 
-      vim.cmd.colorscheme("catppuccin-frappe")
+      vim.cmd("colorscheme carbonfox")
     end,
   },
 }

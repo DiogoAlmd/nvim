@@ -74,7 +74,6 @@ return {
         }, {
           { name = "buffer" },
           { name = "path" },
-          { name = "copilot", group_index = 2 },
         }),
         experimental = {
           ghost_text = {

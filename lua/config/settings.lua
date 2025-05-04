@@ -6,12 +6,6 @@ vim.opt.termguicolors = true
 -- macOS specific settings
 vim.opt.mouse = "a"     -- Enable mouse support
 
--- Handle terminal resize
-vim.api.nvim_create_autocmd("VimResized", {
-  pattern = "*",
-  command = "wincmd =",
-})
-
 -- General settings
 local opt = vim.opt
 
@@ -72,13 +66,3 @@ vim.keymap.set({ "n", "v", "i" }, "<D-s>", "<Esc>:w<CR>", { noremap = true, sile
 vim.keymap.set({ "n", "v" }, "y", '"+y', { noremap = true, silent = true })
 vim.keymap.set({ "n", "v" }, "p", '"+p', { noremap = true, silent = true })
 vim.keymap.set({ "n", "v" }, "P", '"+P', { noremap = true, silent = true })
-
--- Auto-save on leaving insert mode (wrapped in pcall for safety)
-vim.api.nvim_create_autocmd("InsertLeave", {
-  pattern = "*",
-  callback = function()
-    if vim.bo.modifiable and vim.bo.modified then
-      vim.cmd("silent! write")
-    end
-  end,
-})

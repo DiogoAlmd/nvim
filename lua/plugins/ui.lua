@@ -22,4 +22,26 @@ return {
       vim.cmd("colorscheme carbonfox")
     end,
   },
+  {
+    "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("lualine").setup({
+        options = {
+          icons_enabled = false,
+          theme = "auto",
+          component_separators = "",
+          section_separators = "",
+        },
+        sections = {
+          lualine_a = { "mode" },
+          lualine_b = {},
+          lualine_c = { "branch" },
+          lualine_x = {},
+          lualine_y = {},
+          lualine_z = {},
+        },
+      })
+    end,
+  },
 }

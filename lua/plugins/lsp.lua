@@ -11,43 +11,44 @@ return {
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-      local lspconfig = require("lspconfig")
       local servers = {
         -- Web development
-        "ts_ls",          -- TypeScript/JavaScript
+        { "ts_ls", { capabilities = capabilities } },
         -- "eslint",         -- ESLint
         -- Python
-        -- "pyright",        -- Python
-        -- Lua
-        "lua_ls",         -- Lua
+        -- { "pyright", { capabilities = capabilities } },
         -- JSON
-        "jsonls",         -- JSON
-      }
-
-      for _, server in ipairs(servers) do
-        lspconfig[server].setup({
-          capabilities = capabilities,
-        })
-      end
-
-      -- Special configuration for Lua
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities,
-        settings = {
-          Lua = {
-            diagnostics = {
-              globals = { "vim" },
-            },
-            workspace = {
-              library = vim.api.nvim_get_runtime_file("", true),
-              checkThirdParty = false,
-            },
-            telemetry = {
-              enable = false,
+        { "jsonls", { capabilities = capabilities } },
+        -- Lua (with special configuration)
+        {
+          "lua_ls",
+          {
+            capabilities = capabilities,
+            settings = {
+              Lua = {
+                diagnostics = {
+                  globals = { "vim" },
+                },
+                workspace = {
+                  library = vim.api.nvim_get_runtime_file("", true),
+                  checkThirdParty = false,
+                },
+                telemetry = {
+                  enable = false,
+                },
+              },
             },
           },
         },
-      })
+      }
+
+      for _, lsp in ipairs(servers) do
+        local name, config = lsp[1], lsp[2]
+        if config then
+          vim.lsp.config(name, config)
+        end
+        vim.lsp.enable(name)
+      end
 
       -- Keymaps
       vim.api.nvim_create_autocmd("LspAttach", {

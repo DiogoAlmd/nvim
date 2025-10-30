@@ -1,47 +1,64 @@
-return {
-  {
-    "EdenEast/nightfox.nvim",
-    name = "nightfox",
+return {{
+    "sonph/onehalf",
+    name = "onehalf",
     priority = 1000,
     config = function()
-      require("nightfox").setup({
-        options = {
-          transparent = false,
-          terminal_colors = true,
-          dim_inactive = false,
-          styles = {
-            comments = "italic",
-            keywords = "bold",
-            functions = "bold",
-            strings = "NONE",
-            variables = "NONE",
-          },
-        },
-      })
-
-      vim.cmd("colorscheme carbonfox")
-    end,
-  },
-  {
+        vim.opt.runtimepath:append(vim.fn.stdpath("data") .. "/lazy/onehalf/vim")
+        vim.cmd("colorscheme onehalfdark")
+    end
+}, {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     config = function()
-      require("lualine").setup({
-        options = {
-          icons_enabled = false,
-          theme = "auto",
-          component_separators = "",
-          section_separators = "",
-        },
-        sections = {
-          lualine_a = { "mode" },
-          lualine_b = {},
-          lualine_c = { "branch" },
-          lualine_x = {},
-          lualine_y = {},
-          lualine_z = {},
-        },
-      })
-    end,
-  },
-}
+        require("lualine").setup({
+            options = {
+                icons_enabled = true,
+                theme = 'auto',
+                component_separators = {
+                    left = '',
+                    right = ''
+                },
+                section_separators = {
+                    left = '',
+                    right = ''
+                },
+                disabled_filetypes = {
+                    statusline = {},
+                    winbar = {}
+                },
+                ignore_focus = {},
+                always_divide_middle = true,
+                always_show_tabline = true,
+                globalstatus = false,
+                refresh = {
+                    statusline = 1000,
+                    tabline = 1000,
+                    winbar = 1000,
+                    refresh_time = 16, -- ~60fps
+                    events = {'WinEnter', 'BufEnter', 'BufWritePost', 'SessionLoadPost', 'FileChangedShellPost',
+                              'VimResized', 'Filetype', 'CursorMoved', 'CursorMovedI', 'ModeChanged'}
+                }
+            },
+            sections = {
+                lualine_a = {'mode'},
+                lualine_b = {'branch', 'diff', 'diagnostics'},
+                lualine_c = {'filename'},
+                lualine_x = {'encoding', 'filetype'},
+                lualine_y = {'progress'},
+                lualine_z = {'location'}
+            },
+            inactive_sections = {
+                lualine_a = {},
+                lualine_b = {},
+                lualine_c = {'filename'},
+                lualine_x = {'location'},
+                lualine_y = {},
+                lualine_z = {}
+            },
+            tabline = {},
+            winbar = {},
+            inactive_winbar = {},
+            extensions = {}
+        })
+    end
+}}

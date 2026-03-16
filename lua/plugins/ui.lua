@@ -1,11 +1,20 @@
 return {{
-    "sonph/onehalf",
-    name = "onehalf",
+    "neanias/everforest-nvim",
+    name = "everforest",
+    lazy = false,
     priority = 1000,
     config = function()
-        vim.opt.runtimepath:append(vim.fn.stdpath("data") .. "/lazy/onehalf/vim")
-        vim.cmd("colorscheme onehalfdark")
-    end
+        require("everforest").setup({
+            background = "medium",
+            transparent_background_level = 0,
+            italics = true,
+            disable_terminal_colors = false,
+            ui_contrast = "low",
+            float_style = "bright",
+        })
+        vim.o.background = "dark"
+        vim.cmd.colorscheme("everforest")
+    end,
 }, {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",

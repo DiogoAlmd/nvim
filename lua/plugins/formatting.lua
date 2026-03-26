@@ -15,7 +15,7 @@ return {{
     opts = {
         formatters_by_ft = {
             lua = {"stylua"},
-            python = {"isort", "black"},
+            python = {"ruff_format", "ruff_organize_imports"},
             javascript = {"biome"},
             typescript = {"biome"},
             javascriptreact = {"biome"},
@@ -23,8 +23,8 @@ return {{
             json = {"biome"},
             yaml = {"prettierd", "prettier"},
             markdown = {"prettierd", "prettier"},
-            html = {"prettierd", "prettier"},
-            css = {"prettierd", "prettier"}
+            html = {"biome"},
+            css = {"biome"}
         },
         format_on_save = {
             lsp_fallback = true
@@ -41,8 +41,8 @@ return {{
             typescript = {"biomejs"},
             javascriptreact = {"biomejs"},
             typescriptreact = {"biomejs"},
-            json = {"biomejs"}
-            -- python = { "pylint" },
+            json = {"biomejs"},
+            python = {"ruff"}
             -- lua = { "luacheck" },
         }
 

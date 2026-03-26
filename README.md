@@ -4,7 +4,7 @@ A modern Neovim configuration focused on web development with a beautiful UI and
 
 ## Features
 
-- 🎨 Beautiful UI with Carbonfox theme
+- 🎨 Beautiful UI with Everforest theme
 - 📁 Built-in file explorer with enhanced Netrw
 - 🔍 Fuzzy finding with Telescope
 - ⚡ Fast completion with nvim-cmp
@@ -13,6 +13,7 @@ A modern Neovim configuration focused on web development with a beautiful UI and
 - 🔄 Git integration
 - 🎯 Format on save
 - ⌨️ Intuitive keybindings
+- 🤖 Claude Code integration
 
 ## Key Bindings
 
@@ -140,6 +141,18 @@ A modern Neovim configuration focused on web development with a beautiful UI and
 > 💡 `m` stands for *move*, `j` for down, `k` for up.
 
 
+### Claude Code
+- `<leader>ac` - Toggle Claude terminal
+- `<leader>af` - Focus Claude
+- `<leader>ar` - Resume Claude conversation
+- `<leader>aC` - Continue Claude conversation
+- `<leader>am` - Select model
+- `<leader>ab` - Add current buffer to context
+- `<leader>as` - Send selection to Claude (visual mode)
+- `<leader>aa` - Accept diff
+- `<leader>ad` - Deny diff
+- `<C-h>` - Exit Claude terminal and focus code (terminal mode)
+
 ## Installation
 
 1. Backup your existing Neovim configuration:
@@ -160,7 +173,7 @@ nvim
 The configuration will automatically:
 - Install the plugin manager (lazy.nvim)
 - Install all plugins
-- Set up the Melange color scheme
+- Set up the Everforest color scheme
 - Configure LSP servers
 
 ## Requirements

@@ -10,11 +10,11 @@ return {{
             italics = true,
             disable_terminal_colors = false,
             ui_contrast = "low",
-            float_style = "bright",
+            float_style = "bright"
         })
         vim.o.background = "dark"
         vim.cmd.colorscheme("everforest")
-    end,
+    end
 }, {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",

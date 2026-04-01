@@ -9,6 +9,13 @@ return {{
             capabilities = capabilities
         }}, {"ruff", {
             capabilities = capabilities
+        }}, {"basedpyright", {
+            capabilities = capabilities,
+            settings = {
+                basedpyright = {
+                    disableOrganizeImports = true
+                }
+            }
         }}, {"jsonls", {
             capabilities = capabilities
         }}, {"lua_ls", {
@@ -36,6 +43,22 @@ return {{
             end
             vim.lsp.enable(name)
         end
+
+        -- Disable ruff hover in favor of basedpyright
+        vim.api.nvim_create_autocmd("LspAttach", {
+            group = vim.api.nvim_create_augroup("lsp_attach_disable_ruff_hover", {
+                clear = true
+            }),
+            callback = function(args)
+                local client = vim.lsp.get_client_by_id(args.data.client_id)
+                if client == nil then
+                    return
+                end
+                if client.name == "ruff" then
+                    client.server_capabilities.hoverProvider = false
+                end
+            end
+        })
 
         -- Keymaps
         vim.api.nvim_create_autocmd("LspAttach", {
@@ -76,7 +99,7 @@ return {{
     build = ":MasonUpdate",
     opts = {
         ensure_installed = {"typescript-language-server", "lua-language-server", "json-lsp", "prettier", "stylua",
-                            "ruff", "biome"}
+                            "ruff", "basedpyright", "biome"}
     },
     config = function(_, opts)
         require("mason").setup(opts)

@@ -1,20 +1,32 @@
 return {{
-    "neanias/everforest-nvim",
-    name = "everforest",
+    "catppuccin/nvim",
+    name = "catppuccin",
     lazy = false,
     priority = 1000,
     config = function()
-        require("everforest").setup({
-            background = "medium",
-            transparent_background_level = 0,
-            italics = true,
-            disable_terminal_colors = false,
-            ui_contrast = "low",
-            float_style = "bright"
+        require("catppuccin").setup({
+            flavour = "mocha",
+            integrations = {
+                cmp = true,
+                gitsigns = true,
+                telescope = {
+                    enabled = true
+                },
+                treesitter = true,
+                native_lsp = {
+                    enabled = true
+                },
+                indent_blankline = {
+                    enabled = true
+                },
+                mason = true
+            }
         })
-        vim.o.background = "dark"
-        vim.cmd.colorscheme("everforest")
+        vim.cmd.colorscheme("catppuccin")
     end
+}, {
+    "nvim-tree/nvim-web-devicons",
+    lazy = true
 }, {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
@@ -22,7 +34,7 @@ return {{
         require("lualine").setup({
             options = {
                 icons_enabled = true,
-                theme = 'auto',
+                theme = 'catppuccin',
                 component_separators = {
                     left = '',
                     right = ''
